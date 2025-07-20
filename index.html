@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Null Experience | Cyberpunk Portfolio</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+  <!-- ScrollTrigger for GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="style.css" />
+
+
+  <!-- Inter Black Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@900&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Inter', Arial, sans-serif;
+      font-weight: 900;
+    }
+  </style>
+</head>
+<style>
+  /* Contact button pop animation */
+  .contact-btn {
+    transition: transform 0.18s cubic-bezier(0.4,0,0.2,1), box-shadow 0.18s cubic-bezier(0.4,0,0.2,1);
+    will-change: transform;
+    position: relative;
+    z-index: 1;
+  }
+  .contact-btn:hover, .contact-btn:focus {
+    transform: scale(1.10);
+    box-shadow: 0 4px 16px 0 rgba(24, 119, 242, 0.18), 0 1.5px 8px 0 rgba(24, 119, 242, 0.10);
+    z-index: 2;
+  }
+  .contact-btn:active {
+    transform: scale(0.96);
+    box-shadow: 0 2px 8px 0 rgba(24, 119, 242, 0.10);
+    z-index: 2;
+  }
+  /* About Us Card Pop Animation */
+  .about-card {
+    transition: transform 0.4s cubic-bezier(0.4,0,0.2,1), box-shadow 0.4s cubic-bezier(0.4,0,0.2,1);
+    will-change: transform;
+  }
+  /* Only scale down non-hovered cards when one is hovered */
+  .about-cards:has(.about-card:hover) .about-card:not(:hover) {
+    transform: scale(0.92);
+    z-index: 1;
+  }
+  .about-card:hover {
+    transform: scale(1.07);
+    box-shadow: 0 8px 32px 0 rgba(24, 119, 242, 0.25), 0 1.5px 8px 0 rgba(24, 119, 242, 0.10);
+    z-index: 2;
+  }
+  /* Fallback for browsers without :has() - scale up hovered card only */
+  @supports not (selector(:has(*))) {
+    .about-card:hover {
+      transform: scale(1.07);
+      box-shadow: 0 8px 32px 0 rgba(24, 119, 242, 0.25), 0 1.5px 8px 0 rgba(24, 119, 242, 0.10);
+      z-index: 2;
+    }
+  }
+  /* Screenshot hover effect */
+  .screenshot-hover {
+    transition: transform 0.3s cubic-bezier(0.4,0,0.2,1), box-shadow 0.3s cubic-bezier(0.4,0,0.2,1);
+  }
+  .screenshot-hover:hover {
+    transform: scale(1.18);
+    z-index: 2;
+    box-shadow: 0 8px 32px 0 rgba(24, 119, 242, 0.25), 0 1.5px 8px 0 rgba(24, 119, 242, 0.10);
+  }
+</style>
+</head>
+<body class="bg-black text-neonGreen overflow-x-hidden">
+
+  <div id="main">
+
+<!-- ⚡ Cyberpunk Hero Section with Blended Background -->
+<!-- ⚡ Fixed Cyberpunk Hero Section -->
+<!-- ✅ Final Hero Section: Proper Scale + Brightness -->
+<section id="hero" class="relative min-h-screen w-full flex items-center justify-center overflow-hidden">
+
+  <!-- Background Image -->
+  <div class="absolute inset-0 z-0">
+    <img src="images/hero.png"
+         alt="Cyberpunk Background"
+         class="w-full h-full object-cover brightness-100 md:brightness-110" />
+  </div>
+
+  <!-- Soft Overlay (for blending text) -->
+  <div class="absolute inset-0 bg-black/30 md:bg-black/40 z-10"></div>
+
+  <!-- Glowing Text -->
+  <div class="z-20 text-center px-6">
+    <h1 class="text-4xl md:text-6xl font-extrabold text-neonGreen drop-shadow-xl animate-slideIn">
+      <span style="color:#1877f2;">Team Null Experience</span>
+    </h1>
+    <p class="mt-4 text-lg md:text-xl text-neonPink max-w-2xl mx-auto animate-slideIn2">
+      Crafting creativity & code in the cyberverse.
+    </p>
+  </div>
+
+</section>
+
+  </div>
+ <!-- 👥 About Us Section -->
+<section id="about" class="py-20 px-6 bg-gradient-to-r from-white via-blue-100 to-white">
+  <h2 class="text-4xl font-bold text-center text-[#0e4a86] mb-12">👥 ABOUT US</h2>
+
+  <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 about-cards">
+
+    <!-- Chamanpreet Card -->
+    <div class="about-card bg-white/20 backdrop-blur-xl border border-white/30 border-2 border-neonPink neon-glow rounded-xl p-4 md:p-6 animate-about shadow-2xl">
+      <!-- Sliding Image for Chamanpreet -->
+      <img src="images/muskan.png" alt="Muskan" class="about-slide-img absolute left-0 top-1/2 -translate-y-1/2 -translate-x-full opacity-0 pointer-events-none transition-all duration-500 ease-in-out shadow-2xl" style="width: 180px; max-width:60vw; z-index:10; filter: drop-shadow(0 8px 32px #1877f2cc);" />
+      <h3 class="text-2xl font-bold text-[#0e4a86] mb-2">👩‍💻 Chamanpreet Kaur</h3>
+      <p class="text-[#1877f2] mb-2 font-normal" style="font-family: 'Inter', Arial, sans-serif; font-weight: 400;">
+        Currently pursuing B.Tech in Artificial Intelligence & Machine Learning at Arka Jain University, Jharkhand. Completed ISC 12th in Pure Science stream from DBMS English School, Jamshedpur (2024).
+      </p>
+      <p class="text-[#1877f2] mb-2 font-normal" style="font-family: 'Inter', Arial, sans-serif; font-weight: 400;">
+        A versatile full-stack enthusiast, she enjoys handling both backend logic and frontend interactions — and brings designs to life through code. As team leader, she bridges the gap between functionality and experience.
+      </p>
+      <p class="font-semibold mt-3" style="color: #90cdf4;">⚡ Fun Fact: Known for dropping random meme-worthy lines that go viral among friends — and yes, she quotes herself too! 😄</p>
+    </div>
+
+    <!-- Meharpal Card -->
+    <div class="about-card bg-white/20 backdrop-blur-xl border border-white/30 border-2 border-neonGreen neon-glow rounded-xl p-4 md:p-6 animate-about shadow-2xl">
+      <!-- Sliding Image for Meharpal -->
+      <img src="images/mehar.png" alt="Meharpal" class="about-slide-img absolute left-0 top-1/2 -translate-y-1/2 -translate-x-full opacity-0 pointer-events-none transition-all duration-500 ease-in-out shadow-2xl" style="width: 180px; max-width:60vw; z-index:10; filter: drop-shadow(0 8px 32px #1877f2cc);" />
+      <h3 class="text-2xl font-bold text-[#0e4a86] mb-2">👨‍💻 Meharpal Singh</h3>
+      <p class="text-[#1877f2] mb-2 font-normal" style="font-family: 'Inter', Arial, sans-serif; font-weight: 400;">
+        B.Tech student in Artificial Intelligence & Data Science at Arka Jain University, Jharkhand. Completed ISC 12th Pure Science from KSMS English School, Jamshedpur (2024).
+      </p>
+      <p class="text-[#1877f2] mb-2 font-normal" style="font-family: 'Inter', Arial, sans-serif; font-weight: 400;">
+        With a strong eye for UI/UX and visual aesthetics, he focuses on clean layout, theme, and interface design. From color palettes to smooth transitions, he brings life to static designs.
+      </p>
+      <p class="font-semibold mt-3" style="color: #90cdf4;">⚡ Fun Fact: You’ll never need lie detection around him — he smiles the moment he tries! 😆</p>
+    </div>
+
+<style>
+  /* Sliding image animation for About Us cards */
+  .about-card:hover .about-slide-img {
+    transform: translateY(-50%) translateX(140%);
+    opacity: 1;
+    pointer-events: auto;
+  }
+</style>
+
+  </div>
+</section>
+<!-- 🚀 Projects Section -->
+<section id="projects" class="py-20 px-6 bg-gradient-to-r from-white via-blue-100 to-white">
+  <h2 class="text-4xl font-bold text-center text-[#0e4a86] mb-16">🚀 Projects</h2>
+
+  <!-- 📦 Project 1: Healthcare Management -->
+  <div class="about-card bg-white/20 backdrop-blur-xl border border-white/30 border-2 border-neonGreen neon-glow rounded-xl p-6 md:p-8 animate-about shadow-2xl mb-20">
+    <div class="relative flex flex-col items-center">
+      <div class="w-40 h-40 flex items-center justify-center bg-[#111111] text-[#0e4a86] border-4 border-neonGreen rounded-full font-bold text-center text-lg z-10 neon-glow">
+        Healthcare<br>Management
+      </div>
+
+      <!-- Screenshots -->
+      <!-- Screenshots Grid (inside text box) -->
+      <div class="w-full flex flex-wrap justify-center gap-4 mb-6 mt-8">
+        <div class="w-56 h-40 border-2 border-neonGreen rounded-lg overflow-hidden bg-white/30 backdrop-blur-md">
+          <img src="images/healthcare1.jpeg.jpg" alt="Patient List Screenshot" class="w-full h-full object-cover cursor-pointer screenshot-hover" onclick="openFullscreen('images/healthcare1.jpeg.jpg')" />
+        </div>
+        <div class="w-56 h-40 border-2 border-neonGreen rounded-lg overflow-hidden bg-white/30 backdrop-blur-md">
+          <img src="images/healthcare2.jpeg.jpg" alt="Patient Details Screenshot" class="w-full h-full object-cover cursor-pointer screenshot-hover" onclick="openFullscreen('images/healthcare2.jpeg.jpg')" />
+        </div>
+        <div class="w-56 h-40 border-2 border-neonGreen rounded-lg overflow-hidden bg-white/30 backdrop-blur-md">
+          <img src="images/healthcare3.jpeg.jpg" alt="Analytics Dashboard Screenshot" class="w-full h-full object-cover cursor-pointer screenshot-hover" onclick="openFullscreen('images/healthcare3.jpeg.jpg')" />
+        </div>
+        <div class="w-56 h-40 border-2 border-neonGreen rounded-lg overflow-hidden bg-white/30 backdrop-blur-md">
+          <img src="images/healthcare4.jpeg.jpg" alt="Appointment Calendar Screenshot" class="w-full h-full object-cover cursor-pointer screenshot-hover" onclick="openFullscreen('images/healthcare4.jpeg.jpg')" />
+        </div>
+      </div>
+    </div>
+
+    <!-- Description -->
+    <div class="mt-56" style="color:#1877f2;">
+      <h3 class="text-2xl font-bold text-[#0e4a86] mb-3">🩺 Full-Stack Healthcare Patient Management System</h3>
+      <p class="mb-3">
+        A full-stack web application for managing patients, built with Node.js/Express backend and a modern HTML/JavaScript frontend.
+      </p>
+      <ul class="list-disc list-inside text-sm space-y-1 mb-4">
+        <li>Register and log in securely</li>
+        <li>CRUD operations on patient data</li>
+        <li>Search by name, condition, or visit date</li>
+        <li>Interactive analytics: charts on age, conditions, and appointments</li>
+      </ul>
+      <a href="https://github.com/kaauur/healthcare-patient-management" target="_blank" class="inline-block bg-neonGreen text-black px-4 py-2 rounded-full font-bold hover:bg-neonPink hover:text-black transition-all duration-300">🔗 View on GitHub</a>
+    </div>
+  </div>
+
+  <!-- 📚 Project 2: Book Similarity Checker -->
+  <div class="about-card bg-white/20 backdrop-blur-xl border border-white/30 border-2 border-neonPink neon-glow rounded-xl p-6 md:p-8 animate-about shadow-2xl">
+    <h3 class="text-2xl font-bold text-neonPink mb-3">📚 Book Similarity Checker</h3>
+    <p class="mb-3" style="color:#1877f2;">A C++/text analysis project exploring the relationships between 64 classic literary works using robust algorithms and raw text processing.</p>
+
+    <div class="text-sm mb-4" style="color:#1877f2;">
+      <p class="font-bold text-[#0e4a86] mb-1">✨ Key Features:</p>
+      <ul class="list-disc list-inside space-y-1">
+        <li>Identifies top 100 influential words across books</li>
+        <li>Builds a 64x64 similarity matrix</li>
+        <li>Highlights top 10 closest book pairs</li>
+        <li>Processes raw text with precision</li>
+        <li>Implements custom comparison algorithms</li>
+      </ul>
+    </div>
+
+    <div class="text-sm mb-4" style="color:#1877f2;">
+      <p class="font-bold text-neonPink mb-1">📊 Results Highlight:</p>
+      <ul class="list-disc list-inside space-y-1">
+        <li>91% match between Gerard's Herbal Vol. 3 & 4</li>
+        <li>Strong narrative consistency in Laetitia Pilkington’s memoirs</li>
+        <li>Thematic coherence in Foxes Book of Martyrs series</li>
+      </ul>
+    </div>
+
+    <a href="https://github.com/kaauur/IITGCS_24091519-Books-Similarity-Checker" target="_blank" class="inline-block bg-neonPink text-black px-4 py-2 rounded-full font-bold hover:bg-neonGreen hover:text-black transition-all duration-300">🔗 View on GitHub</a>
+  </div>
+
+</section>
+<!-- 🌟 Extra-Curricular Activities -->
+<section id="activities" class="py-20 px-6 bg-gradient-to-r from-white via-blue-100 to-white">
+  <h2 class="text-4xl font-bold text-center text-[#0e4a86] mb-12">🌟 Extra-Curricular Activities</h2>
+
+  <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 about-cards">
+    <!-- Rotary Club -->
+    <div class="about-card bg-white/20 backdrop-blur-xl border border-white/30 border-2 border-neonGreen neon-glow rounded-xl p-4 md:p-6 animate-about shadow-2xl">
+      <h3 class="text-2xl font-bold text-[#0e4a86] mb-2">🤝 Rotary Club & RYLA 2023</h3>
+      <p class="text-[#1877f2] mb-2 font-normal" style="font-family: 'Inter', Arial, sans-serif; font-weight: 400;">
+        Participated in Rotary Youth Leadership Awards (RYLA 2023), focusing on community service, public speaking, and personal growth. Strengthened soft skills and leadership abilities.
+      </p>
+    </div>
+
+    <!-- Traffic Awareness Campaign -->
+    <div class="about-card bg-white/20 backdrop-blur-xl border border-white/30 border-2 border-neonPink neon-glow rounded-xl p-4 md:p-6 animate-about shadow-2xl">
+      <h3 class="text-2xl font-bold text-neonPink mb-2">🚦 Road Safety Awareness Drive</h3>
+      <p class="text-[#1877f2] mb-2 font-normal" style="font-family: 'Inter', Arial, sans-serif; font-weight: 400;">
+        Collaborated with Jamshedpur Traffic Police to spread awareness about helmet usage, belt safety, and traffic rules through live street interactions.
+      </p>
+    </div>
+
+    <!-- Inter-school Events -->
+    <div class="about-card bg-white/20 backdrop-blur-xl border border-white/30 border-2 border-neonGreen neon-glow rounded-xl p-4 md:p-6 animate-about shadow-2xl">
+      <h3 class="text-2xl font-bold text-[#0e4a86] mb-2">🏆 Inter-School Event Participation</h3>
+      <p class="text-[#1877f2] mb-2 font-normal" style="font-family: 'Inter', Arial, sans-serif; font-weight: 400;">
+        Represented schools in various inter-school events during Class 11–12, which helped expand our network, boost confidence, and shape our lifestyle and mindset.
+      </p>
+    </div>
+  </div>
+</section>
+<!-- 📬 Contact Section -->
+<section id="contact" class="py-20 px-6 bg-gradient-to-r from-white via-blue-100 to-white">
+  <h2 class="text-4xl font-bold text-center text-[#0e4a86] mb-12">📬 Get in Touch</h2>
+
+  <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 about-cards">
+    <!-- Chamanpreet -->
+    <div class="about-card bg-white/20 backdrop-blur-xl border border-white/30 border-2 border-neonPink neon-glow rounded-xl p-4 md:p-6 animate-about shadow-2xl">
+      <h3 class="text-2xl font-bold text-neonPink mb-3">👩‍💻 Chamanpreet Kaur</h3>
+      <ul class="space-y-3">
+        <li>
+          <a href="mailto:kaurc797@gmailcom" target="_blank" class="contact-btn bg-neonPink hover:bg-neonGreen">✉️ Email</a>
+        </li>
+        <li>
+          <a href="https://github.com/kaauur" target="_blank" class="contact-btn bg-neonPink hover:bg-neonGreen">💻 GitHub</a>
+        </li>
+        <li>
+          <a href="www.linkedin.com/in/kaauur" target="_blank" class="contact-btn bg-neonPink hover:bg-neonGreen">🔗 LinkedIn</a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Meharpal -->
+    <div class="about-card bg-white/20 backdrop-blur-xl border border-white/30 border-2 border-[#1877f2] neon-glow rounded-xl p-4 md:p-6 animate-about shadow-2xl">
+      <h3 class="text-2xl font-bold mb-3" style="color:#1877f2;">👨‍💻 Meharpal Singh</h3>
+      <ul class="space-y-3">
+        <li>
+          <a href="mailto:meharsingh66888@gmailcom" target="_blank" class="contact-btn" style="background-color:#1877f2; color:#fff;">✉️ Email</a>
+        </li>
+        <li>
+          <a href="https://github.com/mehhaarrrr" target="_blank" class="contact-btn" style="background-color:#1877f2; color:#fff;">💻 GitHub</a>
+        </li>
+        <li>
+          <a href="www.linkedin.com/in/mehar-thethi-00310b374" target="_blank" class="contact-btn" style="background-color:#1877f2; color:#fff;">🔗 LinkedIn</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+  <!-- Scripts -->
+  <script src="script.js"></script>
+  <!-- 🔍 Fullscreen Image Overlay -->
+<div id="fullscreenOverlay" class="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-50 hidden">
+  <img id="fullscreenImg" src="" alt="Zoomed Screenshot" class="max-h-[90%] max-w-[90%] rounded-lg border-4 border-neonPink shadow-2xl" />
+  <button onclick="closeFullscreen()" class="absolute top-6 right-6 bg-neonPink text-black px-4 py-2 font-bold rounded-full hover:bg-neonGreen hover:text-black transition">✖ Close</button>
+</div>
+</body>
+</html>

@@ -1,0 +1,81 @@
+/* About Us Card Pop Animation */
+.about-card {
+  transition: transform 0.4s cubic-bezier(0.4,0,0.2,1), box-shadow 0.4s cubic-bezier(0.4,0,0.2,1);
+  will-change: transform;
+}
+.about-cards:has(.about-card:hover) .about-card:not(:hover) {
+  transform: scale(0.75);
+  filter: blur(1px) brightness(0.95);
+  z-index: 1;
+}
+.about-card:hover {
+  transform: scale(1.25);
+  box-shadow: 0 20px 60px 0 rgba(24, 119, 242, 0.40), 0 4px 24px 0 rgba(24, 119, 242, 0.18);
+  filter: none;
+  z-index: 2;
+}
+@supports not (selector(:has(*))) {
+  .about-card:hover {
+    transform: scale(1.25);
+    box-shadow: 0 20px 60px 0 rgba(24, 119, 242, 0.40), 0 4px 24px 0 rgba(24, 119, 242, 0.18);
+    z-index: 2;
+  }
+}
+/* style.css */
+
+.text-neonPink {
+  color: #ff3cac;
+}
+
+.text-neonGreen {
+  color: #39ff14;
+}
+
+.bg-neonPink {
+  background-color: #ff3cac;
+}
+
+.bg-neonGreen {
+  background-color: #39ff14;
+}
+
+.neon-glow {
+  box-shadow: 0 0 10px #ff3cac, 0 0 20px #ff3cac, 0 0 30px #ff3cac;
+}
+/* Extra neon glow */
+.neon-glow {
+  box-shadow:
+    0 0 10px #ff3cac,
+    0 0 20px #ff3cac,
+    0 0 40px #ff3cac;
+}
+/* Screenshot zoom on hover (desktop) and tap (mobile) */
+.screenshot-img {
+  transition: transform 0.4s ease-in-out;
+  cursor: pointer;
+}
+
+.screenshot-img:hover,
+.screenshot-img:active {
+  transform: scale(1.2);
+  z-index: 50;
+}
+.screenshot-img {
+  transition: transform 0.3s ease-in-out;
+  cursor: pointer;
+}
+.screenshot-img:hover,
+.screenshot-img:active {
+  transform: scale(1.2);
+  z-index: 50;
+}
+.contact-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  color: black;
+  font-weight: bold;
+  border-radius: 9999px;
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 0 8px #39ff14, 0 0 16px #ff3cac;
+}
